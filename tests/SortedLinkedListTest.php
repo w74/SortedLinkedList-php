@@ -45,4 +45,21 @@ final class SortedLinkedListTest extends TestCase {
 
         $list->printEntireList();
     }
+
+    public function testDeletingValues(): void
+    {
+        $list = new SortedLinkedList();
+
+        $node = new LinkedListNode(3);
+
+        $list->addValue($node);
+        $list->addValue(new LinkedListNode(1));
+        $list->addValue(new LinkedListNode(5));
+
+        $list->removeValue($node);
+
+        $this->expectOutputString('1,5,');
+
+        $list->printEntireList();
+    }
 }
